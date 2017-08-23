@@ -5,11 +5,11 @@ icon: rebel
 author:
   name: Roger Champagne
   email: infor@rchampagne.ca
-homepage: https://github.com/roger-champagne/grav-theme-feeling-responsive
-demo: http://rchampagne.ca
+homepage: https://github.com/rchampagneca/feeling-responsive
+demo: https://rchampagne.ca/feeling-responsive
 keywords: grav, theme, etc
-bugs: https://github.com/roger-champagne/grav-theme-feeling-responsive/issues
-readme: https://github.com/roger-champagne/grav-theme-feeling-responsive/blob/develop/README.md
+bugs: https://github.com/rchampagneca/feeling-responsive/issues
+readme: https://github.com/rchampagneca/feeling-responsive/blob/master/README.md
 license: MIT
 
 form:
