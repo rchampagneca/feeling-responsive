@@ -1,5 +1,5 @@
-[![version](https://img.shields.io/badge/Version-0.1.0-orange.svg)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+[](https://img.shields.io/badge/Version-0.1.0-orange.svg)
+[](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 # Feeling Responsive Theme
 
