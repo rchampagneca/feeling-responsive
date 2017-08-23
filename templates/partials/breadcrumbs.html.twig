@@ -1,0 +1,12 @@
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <a href="{{ home_url }}">{{ config.language.language.breadcrumb_start }}</a>
+ {% set crumbs = page.route | split ('/') %}
+   {% for crumb in crumbs[1:] %}
+    {% if loop.last %}
+        <a class="current">{{ header.title }}</a>
+    {% else %}
+        <a href="{{ home_url  ~ "/"  ~  crumb }}{% set crumb_limit = loop.index + 1 %}{% for crumb in crumbs[:1] %}{{ crumb  ~  '/' }}{% endfor %}">{{ crumb | replace('-',' ') }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>

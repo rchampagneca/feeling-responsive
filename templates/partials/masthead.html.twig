@@ -1,0 +1,123 @@
+{% if header.image == NULL and header.image.image_fullwidth == NULL and header.image.pattern == NULL and header.image.background - color == NULL and header.image.title == NULL %}
+
+  <div id="masthead-no-image-header">
+    <div class="row">
+      <div class="small-12 columns">
+        <a id="logo" href="{{ base_url == '' ? '/' : base_url }}" title="{{ site.title }} – {{ site.slogan }}">
+          <img src="{{ url('theme://images/logo.png') }}" alt="{{ site.title }} – {{ site.slogan }}">
+        </a>
+      </div><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+  </div><!-- /#masthead -->
+
+  {% if header.breadcrumb == true %}
+    {% include 'partials/breadcrumbs.html.twig' %}
+  {% endif %}
+
+  {% elseif header.image.title %}
+
+  <div
+    id="masthead-with-text"
+    style="{% if header.image.background_color %}background: {{ header.image.background_color }};{% endif %} {% if header.image.image_fullwidth %}{% elseif header.image.pattern %}background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('{{ page.media[header.image.pattern].url }}'){% endif %}">
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="masthead-title">{{ header.image.title }}</div>
+      </div><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+  </div><!-- /#masthead -->
+
+  {% if header.breadcrumb == true %}
+      {% include 'partials/breadcrumbs.html.twig' %}
+  {% endif %}
+
+  {% if header.image.caption_url and header.image.caption %}
+    <div class="masthead-caption">
+      <a href="{{ header.image.caption_url }}">{{ header.image.caption }}</a>
+    </div>
+    {% elseif header.image.caption %}
+    <div class="masthead-caption">
+      {{ header.image.caption }}
+    </div>
+  {% endif %}
+
+  {% elseif header.image.image_fullwidth %}
+
+  <div id="masthead">
+    <div class="row">
+      <div class="small-12 columns">
+        <a id="logo" href="{{ base_url == '' ? '/' : base_url }}" title="{{ site.title }} – {{ site.slogan }}">
+          <img src="{{ url('theme://images/logo.png') }}" alt="{{ site.title }} – {{ site.slogan }}">
+        </a>
+      </div><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+  </div><!-- /#masthead -->
+
+  {% if header.breadcrumb == true %}
+    {% include 'partials/breadcrumbs.html.twig' %}
+  {% endif %}
+
+  {% if header.image.caption_url and header.image.caption %}
+    <div class="masthead-caption">
+      <a href="{{ header.image.caption_url }}">{{ header.image.caption }}</a>
+    </div>
+    {% elseif header.image.caption %}
+    <div class="masthead-caption">
+      {{ header.image.caption }}
+    </div>
+  {% endif %}
+
+  {% elseif header.image.pattern %}
+
+  <div id="masthead-with-pattern" style="background: url('{{ site.urlimg }}/{{ header.image.pattern }}')">
+    <div class="row">
+      <figure class="small-12 columns">
+        <img src="{{ base_url_absolute }}/user/pages/{{ header.image.image }}" alt="{{ site.title }}">
+      </figure><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+  </div><!-- /#masthead -->
+
+  {% if header.breadcrumb == true %}
+    {% include 'partials/breadcrumbs.html.twig' %}
+  {% endif %}
+
+  {% if header.image.caption_url and header.image.caption %}
+    <div class="masthead-caption">
+      <a href="{{ header.image.caption_url }}">{{ header.image.caption }}</a>
+    </div>
+    {% elseif header.image.caption %}
+    <div class="masthead-caption">
+      {{ header.image.caption }}
+    </div>
+  {% endif %}
+
+  {% elseif header.image.background_color %}
+
+  <div id="masthead-with-background-color" style="background: {{ header.image.background_color }};">
+    <div class="row">
+      <figure class="small-12 columns">
+        <img src="{{ base_url_absolute }}/user/pages/{{ header.image.image}}" alt="{{ site.title }}">
+      </figure><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+  </div><!-- /#masthead -->
+
+  {% if page.breadcrumb == true %}
+    {% include _breadcrumb.html %}
+  {% endif %}
+
+  {% if header.image.caption_url and header.image.caption %}
+    <div class="masthead-caption">
+      <a href="{{ header.image.caption_url }}">{{ header.image.caption }}</a>
+    </div>
+    {% elseif header.image.caption %}
+    <div class="masthead-caption">
+      {{ header.image.caption }}
+    </div>
+  {% endif %}
+
+  {% elseif header.image == false %}
+
+  {% if header.breadcrumb == true %}
+    {% include 'partials/breadcrumbs.html.twig' %}
+  {% endif %}
+
+{% endif %}<!-- /. End of masterhead.html.twig -->

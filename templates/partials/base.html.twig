@@ -1,0 +1,29 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+  <head>
+    {% include 'partials/head.html.twig' %}
+  </head>
+  <body id="top-of-page" class="{{ template }}">
+
+    {% if config.site.google_analytics_tracking_id %}
+      {% include 'partials/google_tag_manager.html.twig' %}
+    {% endif %}
+
+    {% if not header.skip_boilerplate %}
+      {% include 'partials/navigation.html.twig' %}
+    {% endif %}
+
+    {% include 'partials/masthead.html.twig' %}
+
+    {% block content %}
+      {{ page.content }}
+    {% endblock %}
+
+    {% if not header.skip_boilerplate %}
+      {% include 'partials/footer.html.twig' %}
+    {% endif %}
+
+    {% include 'partials/footer_scripts.html.twig' %}
+  </body>
+</html>

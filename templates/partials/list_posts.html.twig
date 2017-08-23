@@ -1,0 +1,50 @@
+{#
+*
+*   Possible parameter for this loop:
+*
+*    › entries
+*    › offset
+*    › category
+*    › tag
+*
+*   Example for Category: {% include list-posts entries='3' offset='1' category='design' %}
+*
+*   Example for Tag: {% include list-posts entries='5' tag='terminal' %}
+*
+*
+*   This loop works like this:
+*
+*   1. First we check if there was given a category for filtering › if include.categories == NULL
+*   2. If no category is given for filtering do a general loop.
+*   3. If a category/tag was given, assign category/tag to the variable category/tag › assign category = include.categories
+*
+#}
+
+
+<ul class="side-nav">
+
+{% if category == NULL and tag == NULL %}
+  {% set q = page.collection({'items':{'@taxonomy':{'category': 'docs'}},'order': {'by': 'default', 'dir': 'asc'}}) %}
+  {% for p in page.collection | slice(1, 3)   %}
+    <li><a href="{{ p.url }}">{% if p.header.subheadline %}{{ p.header.subheadline }} &middot; {% endif %}<strong>{{ p.title }}</strong></a></li>
+  {% endfor %}
+
+  <li class="text-right"><a href="{{ base_url }}/blog/archive/"><strong>{{ config.language.language.more }}</strong></a></li>
+
+{% elseif category %}
+    {% set q = page.collection({'items':{'@taxonomy':{'category': category}},'order': {'by': 'default', 'dir': 'asc'}}) %}
+    {% for  p in q %}
+      <li><a href="{{ p.url }}">{% if p.header.subheadline %}{{ p.header.subheadline }} &middot; {% endif %}<strong>{{ p.title }}</strong></a></li>
+    {% endfor %}
+      <li class="text-right"><a href="{{ base_url }}/blog/archive/"><strong>{{ config.language.language.more }}</strong></a></li>
+
+
+{% elseif tag %}
+    {% set q = page.collection({'items':{'@taxonomy':{'tag': tag}},'order': {'by': 'default', 'dir': 'asc'}}) %}
+    {% for  p in q %}
+      <li><a href="{{ p.url }}">{% if p.header.subheadline %}{{ p.header.subheadline }} &middot; {% endif %}<strong>{{ p.title }}</strong></a></li>
+    {% endfor %}
+      <li class="text-right"><a href="{{ base_url }}/blog/archive/"><strong>{{ config.language.language.more }}</strong></a></li>
+
+{% endif %}
+</ul>

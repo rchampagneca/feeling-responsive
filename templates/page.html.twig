@@ -1,0 +1,63 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+  <div class="row t30">
+    <div class="medium-8 columns{% if header.sidebar == NULL %} medium-offset-2 end{% endif %}{% if header.sidebar == "left" %} medium-push-4{% endif %}">
+      <article itemscope itemtype="http://schema.org/Article">
+        <header>
+          <div itemprop="name">
+            {% if header.subheadline %}
+              <p class="subheadline">{{ header.subheadline }}</p>
+            {% endif %}
+            <h1>{{ header.title }}</h1>
+          </div>
+        </header>
+
+        {% if header.teaser %}
+          <p class="teaser" itemprop="description">
+            {{ header.teaser }}
+          </p>
+        {% endif %}
+
+        <div itemprop="articleSection">
+          {{ page.content }}
+        </div>
+
+        {% if header.show_meta == true %}
+          {% include 'partials/meta_information.html.twig' %}
+        {% endif %}
+
+        {% if header.show_share == true %}
+          {% include 'partials/share.html.twig' with {'url' : page.url} %}
+        {% endif %}
+
+        {% if header.comments == true %}
+          {% include 'partials/comments.html.twig' %}
+        {% endif %}
+      </article>
+    </div>
+    <!-- /.medium-8.columns -->
+
+    {% if header.sidebar == "left" %}
+      <div class="medium-4 columns medium-pull-8">
+        {% for item in header.sidebar_names %}
+            {% set md = include(item) %}
+            {{ md | markdown }}
+        {% endfor %}
+      </div>
+      <!-- /.medium-4.columns -->
+    {% endif %}
+
+    {% if header.sidebar == "right" %}
+      <div class="medium-4 columns">
+        {% for item in header.sidebar_names %}
+            {% set md = include(item) %}
+            {{ md | markdown }}
+        {% endfor %}
+      </div>
+      <!-- /.medium-4.columns -->
+    {% endif %}
+  </div>
+  <!-- /.row -->
+{% endblock content %}

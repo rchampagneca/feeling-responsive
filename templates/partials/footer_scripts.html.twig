@@ -1,0 +1,16 @@
+{% block bottom %}
+    {% do assets.addJs('theme://js/javascript.js', 100) %}
+{% endblock %}
+
+{{ assets.js() }}
+
+{% if header.image.image_fullwidth %}
+<script>
+    $("#masthead").backstretch("{{ base_url_absolute }}/user/pages/{{ header.image.image_fullwidth }}", {fade: 700});
+    $("#masthead-with-text").backstretch("{{ base_url_absolute }}/user/pages/{{ header.image.image_fullwidth }}", {fade: 700});
+</script>
+{% endif %}
+
+{#
+* http://localhost/Sites/grav/user/pages/images/headers//unsplash_leaf_header.jpg
+#}

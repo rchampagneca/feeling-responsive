@@ -1,0 +1,113 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+<div id="header-home">
+    <div class="row">
+        <div class="small-12 columns">
+        </div><!-- /.medium-4.columns -->
+    </div><!-- /.row -->
+</div><!-- /#header-home -->
+
+
+{#
+*
+* First check, if widget is empty or not by checking if there is a title
+*
+#}
+<div class="row t60">
+	{% if header.widget1.title %}
+		{% include '/partials/frontpage_widget.html.twig' with { 'widget': header.widget1} %}
+	{% endif %}
+
+
+	{% if header.widget2.title %}
+		{%  include '/partials/frontpage_widget.html.twig' with { 'widget': header.widget2} %}
+	{% endif %}
+
+
+	{% if header.widget3.title %}
+		{% include '/partials/frontpage_widget.html.twig' with { 'widget': header.widget3} %}
+	{% endif %}
+</div><!-- /.row -->
+
+
+{#
+*
+* First check, if there is a call for action-button
+*
+#}
+{% if header.callforaction.url starts with 'http' %}
+{% set url = header.callforaction.url %}
+{% else %}
+{% set url %}{{ base_url }}/{{header.callforaction.url}}{% endset %}
+{% endif %}
+
+{% if header.callforaction %}
+    <div class="row t60 b60">
+        <div class="small-12 text-center columns">
+      <a class="button large radius {{ header.callforaction.style }}" href="{{ url }}"{% if header.callforaction.url starts with 'http' %} target="_blank" {% endif %}>{{ header.callforaction.text }}</a>
+        </div><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+{% endif %}
+
+
+{#
+*
+* First check, if there are any posts at all
+*
+#}
+
+{% if page.collection  == true %}
+
+<div class="row t30 b20 homepage">
+        <div class="small-12 columns">
+            {% for p in page.collection | slice(0, 1) %}
+            {% if p.header.feature.homepage %}
+            <p>
+                <a href="{{ p.url }}" title="{{ p.title | escape }}"><img width="970" src="{{ base_url_absolute }}/user/pages/{{ p.header.feature.homepage  }}" alt="{{ p.title | escape }}"></a>
+            </p>
+            {% if p.header.feature.caption_url and p.header.feature.caption %}
+            <p class="text-right caption">
+                <a href="{{ p.header.feature.caption_url }}">{{ p.header.feature.caption }}</a>
+            </p>
+            {% endif %}
+            {% elseif p.header.feature.homepage == NULL %}
+            <h2>{{ config.language.language.new_blog_entries }}</h2>
+            {% endif %}
+            {% endfor %}
+        </div><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+
+    <div class="row">
+        <div class="medium-6 columns">
+            {% for p in page.collection  | slice(0, 1) %}
+            {% if p.header.subheadline %}<p class="subheadline">{{ p.header.subheadline }}</p>{% endif %}
+            <h2><a href="{{ p.url }}">{{ p.title }}</a></h2>
+            <p>
+                {% if p.header.meta_description  %}{{ p.header.meta_description | striptags | escape }}{% elseif p.header.teaser %}{{ p.header.teaser | striptags | escape }}{% endif %}
+                <a href="{{ p.url }}" title="Read {{ p.title  | escape }}"><strong>{{ config.language.language.read_more }}</strong></a>
+            </p>
+            {% endfor %}
+        </div><!-- /.medium-5.columns -->
+
+
+        <div class="medium-6 columns">
+            <p><strong>{{ config.language.language.more_articles }}</strong></p>
+            {% include '/partials/list_posts.html.twig' with { 'category': 'Projet'} %}
+        </div><!-- /.medium-7.columns -->
+    </div><!-- /.row -->
+
+{% endif %}
+
+{#
+*
+* Finally, if there is content, spit it out.
+*
+#}
+
+<div class="row">
+    {{ page.content }}
+</div><!-- /.row -->
+
+{% endblock content %}

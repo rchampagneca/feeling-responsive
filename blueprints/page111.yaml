@@ -1,0 +1,65 @@
+title: Feeling Responsive custom headers fields
+@extends:
+  type: default
+  context: blueprints://pages
+
+form:
+  name: feeling-responsive
+  fields:
+
+      content:
+        type: section
+        title: Header Styling
+        underline: true
+
+        fields:
+            header.subheadline:
+                type: text
+                label: Post sub headline
+                placeholder: Enter the page's subtitle
+
+            header.teaser:
+                type: textarea
+                label: Post teaser
+                placeholder: Enter the page's teaser
+
+            header.image.image_fullwidth:
+                type: filepicker
+                folder: 'user/pages/images/headers'
+                label: Image fullwidth path name
+                preview_images: true
+                accept:
+                  - .png
+                  - .jpg
+
+            header.image.image:
+                type: text
+                label: Inline image path name
+
+            header.image.caption:
+                type: textarea
+                label: Image caption
+
+            header.image.caption_url:
+                type: text
+                label: Image caption url
+
+      other:
+        type: section
+        title: Other
+        underline: true
+
+        fields:
+            header.comments:
+                type: checkbox
+                label: Are comments enabled ?
+                Default: false
+
+            header.breadcrumb:
+                type: checkbox
+                label: Are breadcrumbs enabled ?
+                default: false
+
+            header.sidebar_names:
+                type: list
+                label: Sidebar twig template

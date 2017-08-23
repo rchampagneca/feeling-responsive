@@ -1,0 +1,27 @@
+name: Feeling Responsive
+version: 0.1.0
+description: Feeling Responsive
+icon: rebel
+author:
+  name: Roger Champagne
+  email: infor@rchampagne.ca
+homepage: https://github.com/roger-champagne/grav-theme-feeling-responsive
+demo: http://rchampagne.ca
+keywords: grav, theme, etc
+bugs: https://github.com/roger-champagne/grav-theme-feeling-responsive/issues
+readme: https://github.com/roger-champagne/grav-theme-feeling-responsive/blob/develop/README.md
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in Menu
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool

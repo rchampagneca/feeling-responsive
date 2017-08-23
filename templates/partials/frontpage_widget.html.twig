@@ -1,0 +1,17 @@
+<!-- Widget -->
+<div class="medium-4 columns frontpage-widget">
+	{% set widget_url %}{% if widget.url starts with 'http' %}{{ widget.url }}{% else %}{{ base_url }}/{{ widget.url }}{% endif %}{% endset %}
+	{% if widget.video %}
+		{{ widget.video }}
+	{% else %}
+		<a href="{{ widget_url }}">
+			{% if widget.image %}
+				{% set widget_image %}{% if widget.image starts with 'http' %}{{ widget.image }}{% else %}{{ base_url_absolute }}/user/pages/{{ widget_image }}{% endif %}{% endset %}
+				<img src="{{widget.image}}" alt="" />
+			{% endif %}
+		</a>
+	{% endif %}
+	<h2 class="font-size-h3 t10">{{ widget.title }}</h2>
+	<p>{{ widget.text }}</p>
+	<p><a class="button tiny radius" href="{% if widget.url starts with 'http' %}{{ widget.url }}{% else %}{{ base_url }}/{{ widget.url }}{% endif %}">{{ config.language.language.more }}</a></p>
+</div>

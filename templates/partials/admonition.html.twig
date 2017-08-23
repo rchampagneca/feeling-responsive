@@ -1,0 +1,28 @@
+{#
+Inspired from Asciidoctor
+
+Parameters:
+
+Type: warning, note
+Title: Message title
+Message: Message text in MD
+#}
+
+<div class="sectionbody">
+  <div class="admonitionblock {{ type }}">
+    <table>
+      <tbody>
+        <tr>
+          <td class="icon">
+            <i class="fa icon-{{ type }}" title="{{ type }}"></i>
+          </td>
+          <td class="content">
+            <div class="ulist">
+              <div class="title">{{ titke }}</div>
+              {{ message | markdown }}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><hr></div>

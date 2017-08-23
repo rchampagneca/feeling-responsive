@@ -1,0 +1,34 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+<div class="row t30">
+	<div class="medium-12 columns">
+		<article>
+			<header>
+				{% if header.subheadline %}<p class="subheadline">{{ header.subheadline }}</p>{% endif %}
+				<h1>{{ header.title }}</h1>
+			</header>
+
+			{% if header.teaser %}
+			<p class="teaser">
+				{{ header.teaser }}
+			</p>
+			{% endif %}
+
+			<div itemprop="articleSection">
+				{{ page.content }}
+			</div>
+
+			{% if header.show_meta == true %}
+			{% include 'partials/meta_information.html.twig' %}
+			{% endif %}
+
+			{% if header.comments == true %}
+			{% include 'partials/comments.html.twig' %}
+			{% endif %}
+		</article>
+	</div><!-- /.medium-12.columns -->
+</div><!-- /.row -->
+
+{% endblock content %}

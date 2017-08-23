@@ -1,0 +1,96 @@
+{% block head %}
+
+  {#
+  # Variables › {{ description }} › excerpt, page.meta_description, or site.description
+  # Variables › {{ title }} › page.title
+  #}
+
+  {% set description %}
+  {% if header.meta_description %}{{ header.meta_description }}
+  {% elseif header.teaser %}{{ header.teaser }}
+  {% elseif page.summary %}{{ page.summary }}
+  {% elseif site.description %}{{ site.description }}
+  {% endif %}
+  {% endset %}
+  {% set description = description | striptags | trim | escape('html') %}
+
+  {% set title %}
+  {% if header.meta_title %}{{ header.meta_title}}
+  {% elseif header.title %}{{ header.title }}
+  {% else %}{{ site.title }}
+  {% endif %}
+  {% endset %}
+
+  {% set title = title | striptags | trim | escape('html') %}
+
+  <meta charset="utf-8"/>
+  <title>
+    {% if header.title %}{{ header.title|e('html') }}
+      |
+    {% endif %}{{ site.title|e('html') }}
+  </title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include 'partials/metadata.html.twig' %}
+
+  <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}"/>
+  <link rel="canonical" href="{{ page.url(true) }}"/>
+
+  {% block stylesheets %}
+    {% do
+      assets.addCss('theme://css-compiled/styles_feeling_responsive.css', 100) %}
+    {% do
+      assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.min.css', 99) %}
+  {% endblock %}
+  {{ assets.css() }}
+
+  {% block javascripts %}
+    {% do
+      assets.addJs('jquery', 100) %}
+    {% do
+      assets.addJs('theme://js/modernizr.js', 99) %}
+    {% do
+      assets.addJs('https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js', 98) %}
+  {% endblock %}
+  {{ assets.js() }}
+
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Lato:400,700,400italic:latin', 'Volkhov::latin']
+      }
+    });
+  </script>
+
+  <!-- Search Engine Optimization -->
+  <meta name="description" content="{{ description }}">
+  {% if config.site.google_site_verification %}<meta name="google-site-verification" content="{{ config.site.google_site_verification}}">{% endif %}
+  {% if config.site.bing_webmastertools_id %}<meta name="msvalidate.01" content="{{ config.site.bing_webmastertools_id }}">{% endif %}
+  {% if config.site.yandex_site_verification %}<meta name="yandex-verification" content="{{ config.site.yandex_site_verification }}">{% endif %}
+  {% if config.site.google_author %}<link rel="author" href="{{ config.site.google_author }}">{% endif %}
+  {% if config.site.alexa_verify_id %}<meta name="alexaVerifyID" content="{{ config.site.alexa_verify_id }}">{% endif %}
+  {% if header.noindex == true %}<meta name="robots" content="noindex">{% endif %}
+  <link rel="canonical" href="{{  page.url(true) }}">
+
+  <!-- Facebook Open Graph -->
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{  page.url(true)  }}">
+  <meta property="og:locale" content="{% if site.og_locale == nil %}en_EN{% else %}{{ site.og_locale }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title }}">
+  {% if header.image.title %}<meta property="og:image" content="{{ site.urlimg }}{{ page.image.title }}">{% endif %}
+  {% if site.socialmedia.facebook %}<meta property="article:author" content="https://www.facebook.com/{{ config.site.socialmedia.facebook }}">{% endif %}
+
+  {% if site.socialmedia.twitter %}
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="{{ config.site.socialmedia.twitter }}">
+    <meta name="twitter:creator" content="{{ config.site.socialmedia.twitter }}">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    {% if header.image.title %}<meta name="twitter:image" content="{{ site.urlimg }}{{ page.image.title }}">{% endif %}
+  {% endif %}
+
+{% endblock head%}

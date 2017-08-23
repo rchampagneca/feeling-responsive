@@ -1,0 +1,76 @@
+<hr>
+<div id="page-meta" class="t30">
+  <p>
+    <!-- Look the author details up from the site config. -->
+    {% set author = config.authors.authors[header.author] %}
+    <!-- Output author details if some exist. -->
+    {% if author.gravatar %}
+     <!-- Gravatar -->
+      <img src="{{ author.gravatar}}" class="author" alt="Une photo de {{ author.name }}"/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name" class="pr20 icon-edit">
+          <a href="mailto:{{ author.email |  safe_email }}" target="_blank">
+            {{ author.name }}</a>
+        </span>
+      </span>
+    {% elseif author.email %}
+      <!-- Photo author -->
+      <img src="{{ page.find('/images/authors').media[ author.mug ].url }}" class="author" alt="Une photo de {{ author.name }}"/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name" class="pr20 icon-edit">
+          <a href="mailto:{{ author.email | safe_email }}" target="_blank">
+            {{ author.name }}</a>
+        </span>
+      </span>
+    {% endif %}
+
+    {% if page.date %}
+      <time class="icon-calendar pr20" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date("m/d/y") }}</time>
+    {% endif %}
+
+    {% if page.taxonomy %}
+      <span class="icon-archive pr20">
+        {% for category in page.taxonomy.category %}
+          {{category}}</span>
+      {% endfor %}
+    {% endif %}
+  </span>
+  <br/>
+  <span class="pr20">
+    {% for tag in page.taxonomy.tag %}
+      <a href="{{ site.url }}/tags/{{tag | replace( ' ', '-') }}.html">
+        <span class="icon-price-tag pr10 tag {{tag}} | truncate: 1, ''">
+          {{tag}}</span>
+      </a>
+    {% endfor %}
+  </span>
+</p>
+
+{% if page.collection == "posts" %}
+  <div id="post-nav" class="row">
+    {% if page.previous.url %}
+      <div class="small-5 columns">
+        <a class="button small radius prev" href="{{ site.url }}{{ site.baseurl }}{{page.previous.url}}">&laquo;
+          {{page.previous.title}}</a>
+      </div>
+      <!-- /.small-4.columns -->
+    {% endif %}
+    <div class="small-2 columns text-center">
+      <a class="radius button small" href="{{ site.url }}{{ site.baseurl }}/blogue/archive/" title="Blog {{ site.data.language.archive }}">{{ site.data.language.archive }}</a>
+    </div>
+    <!-- /.small-4.columns -->
+    {% if page.next.url %}
+      <div class="small-5 columns text-right">
+        <a class="button small radius next" href="{{ site.url }}{{ site.baseurl }}{{page.next.url}}">{{page.next.title}}
+          &raquo;</a>
+      </div>
+      <!-- /.small-4.columns -->
+    {% else %}
+      <div class="small-5 columns text-right"></div>
+      <!-- /.small-4.columns -->
+    {% endif %}
+  </div>
+{% endif %}
+</div>
+<!--  /.page-meta -->

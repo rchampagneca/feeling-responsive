@@ -1,0 +1,716 @@
+/*
+http://zurb.com/building-blocks/foundation-icon-font-styles
+*/
+.share i {
+    font-size: 2.0rem;
+}
+
+.share .lastfm-circled:hover i {
+    color: #d51007;
+}
+
+.share .gplus-circled:hover i {
+    color: #dc4e41;
+}
+
+.share .facebook-official:hover i {
+    color: #3b5998;
+}
+
+.share .twitter-square:hover i {
+    color: #00aced;
+}
+
+.share .linkedin-square:hover i {
+    color: #007bb5;
+}
+
+.share .bitbucket-square:hover i {
+    color: #205081;
+}
+
+.share .youtube-play:hover i {
+    color: #cd201f;
+}
+
+.share .print:hover i {
+    color: #808080;
+}
+
+.share .envelope:hover i {
+    color: #808080;
+}
+/*
+.share .lastfm-circled:hover,      .share .bitbucket-square:hover,  .share .youtube-play:hover,
+.share .gplus-circled:hover,       .share .facebook-official:hover, .share .twitter-square:hover,
+.share .linkedin-square:hover,     .share .print:hover,             .share .envelope:hover  {
+ transition: all 0.5s ease 0s;
+ text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6), 3px 3px 8px rgba(0, 0, 0, 0.4); }
+*/
+/* Zurb Social Hover Icons
+http://zurb.com/building-blocks/social-hover-icons
+*/
+i {
+    font-size: 2.0rem;
+}
+
+.icon-button {
+    border-radius: 3.0rem;
+    width: 3.0rem;
+    height: 3.0rem;
+    margin: 0 5px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.5rem;
+    background: white;
+}
+
+.icon-button span {
+    display: block;
+    border-radius: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transition: all 0.3s;
+}
+
+.icon-button:hover span {
+    display: block;
+    border-radius: 3.1rem;
+    width: 3.0rem;
+    height: 3.0rem;
+    margin: -1.5rem;
+}
+
+.icon-button i {
+    background: none;
+    height: 3.0rem;
+    width: 3.0rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    line-height: 3.0rem;
+    transition: all 0.3s;
+}
+
+.lastfm-circled span {
+    background-color: #d51007;
+}
+
+.gplus-circled span {
+    background-color: #dc4e41;
+}
+
+.facebook-official span {
+    background-color: #3b5998;
+}
+
+.twitter-square span {
+    background-color: #00aced;
+}
+
+.linkedin-square span {
+    background-color: #007bb5;
+}
+
+.bitbucket-square span {
+    background-color: #205081;
+}
+
+.youtube-play span {
+    background-color: #cd201f;
+}
+
+.github-alt span {
+    background-color: #181717;
+}
+
+.print span {
+    background-color: #32506d;
+}
+
+.envelope span {
+    background-color: #32506d;
+}
+
+.icon-button .rcfont-lastfm-circled {
+    color: #d51007;
+}
+
+.icon-button .rcfont-gplus-circled {
+    color: #dc4e41;
+}
+
+.icon-button .rcfont-facebook-official {
+    color: #3b5998;
+}
+
+.icon-button .rcfont-twitter-square {
+    color: #007bb5;
+}
+
+.icon-button .rcfont-linkedin-square {
+    color: #007bb5;
+}
+
+.icon-button .rcfont-bitbucket-square {
+    color: #205081;
+}
+
+.icon-button .rcfont-youtube-play {
+    color: #cd201f;
+}
+
+.icon-button .rcfont-github-alt {
+    color: #181717;
+}
+
+.icon-button .rcfont-print {
+    color: #32506d;
+}
+
+.icon-button .rcfont-envelope {
+    color: #32506d;
+}
+
+.icon-button:hover .rcfont-bitbucket-square,
+.icon-button:hover .rcfont-envelope,
+.icon-button:hover .rcfont-facebook-official,
+.icon-button:hover .rcfont-github-alt,
+.icon-button:hover .rcfont-gplus-circled,
+.icon-button:hover .rcfont-lastfm-circled,
+.icon-button:hover .rcfont-linkedin-square,
+.icon-button:hover .rcfont-print,
+.icon-button:hover .rcfont-twitter-square,
+.icon-button:hover .rcfont-youtube-play {
+    color: white;
+    font-size: 2.1rem;
+    line-height: 3.4rem;
+}
+/* Zurb Event Listing
+http://zurb.com/building-blocks/event-listing
+*/
+.event {
+    padding: 1rem 1rem 1rem 0;
+    display: table;
+}
+
+.event-date {
+    width: 6rem;
+    margin: 0 auto 1rem;
+    display: table-cell;
+    width: auto;
+
+    .event-month {
+        margin: 0;
+        background: #eee;
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    .event-day {
+        margin: 0;
+        border: 1px solid #eee;
+        padding: 0 2rem;
+        text-align: center;
+        font-size: 2rem;
+    }
+}
+
+.event-desc {
+    padding: 0 0 0 1rem;
+    text-align: left;
+    display: table-cell;
+    vertical-align: top;
+
+    .event-desc-header {
+        margin: 0 0 0.5rem;
+        padding: 0;
+    }
+
+    .event-desc-detail {
+        margin: 0 0 0.25rem;
+        padding: 0;
+    }
+
+    .event-desc-time {
+        font-weight: bold;
+    }
+
+    .rsvp.button {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin: 0;
+    }
+}
+/* Zurb info card
+http://zurb.com/building-blocks/info-card
+*/
+.box {
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 10px 25px;
+    display: block;
+    margin-top: 60px;
+}
+
+.box-icon {
+    background-color: #569;
+    border-radius: 50%;
+    display: table;
+    height: 100px;
+    margin: 0 auto;
+    width: 100px;
+    margin-top: -61px;
+    font-size: 3rem;
+
+    span {
+        color: #fff;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+.info {
+    h4 {
+        font-size: 26px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: #717171;
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    a {
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: all 0.5s ease 0s;
+
+        &:hover {
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+            transition: all 0.5s ease 0s;
+        }
+    }
+}
+/* Zurb Article Card
+http://zurb.com/building-blocks/article-card
+*/
+.article-card {
+    border: 1px solid #d7d7d7;
+    margin-bottom: 1.5rem;
+    box-shadow: 2px 4px 5px 0 #d7d7d7;
+
+    .card-content {
+        background: #fff;
+        margin: 1.25rem;
+
+        .post-author {
+            text-align: center;
+        }
+
+        h4 {
+            color: #DF4949;
+        }
+
+        p {
+            color: #757D75;
+        }
+
+        a i {
+            font-weight: 300;
+            color: #757D75;
+            margin: 0 0.5rem;
+            padding: 5px 7px;
+            border: 1px solid #757D75;
+            border-radius: 50%;
+        }
+
+        img.post-icon {
+            position: absolute;
+            width: 3rem;
+            border-radius: 50%;
+            margin-top: -3rem;
+        }
+    }
+}
+/* Zurb 3D Cards
+http://zurb.com/building-blocks/article-card
+*/
+.card {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    -webkit-perspective: 5000;
+    perspective: 5000;
+}
+
+.card h4 {
+    color: #DF4949;
+}
+
+.card .container {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+}
+
+.card .container .back,
+.card .container .front {
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card .container .back .column,
+.card .container .back .columns,
+.card .container .back .row,
+.card .container .front .column,
+.card .container .front .columns,
+.card .container .front .row {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card .container .front {
+    z-index: 2;
+}
+
+.card .container .back {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.card .container:hover {
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.card .container {
+    border: solid 1px #eeeeee;
+}
+
+.card .container .back,
+.card .container .front {
+    padding: 1em;
+}
+
+.card .square .container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+}
+/*
+http://zurb.com/building-blocks/blockquote-style
+*/
+.cite {
+    border-left: 5px solid #ffdb3a;
+    padding: 10px 0 10px 30px;
+    margin: 0 0 1rem -10px;
+
+    p {
+        font-style: italic;
+    }
+}
+/*
+http://zurb.com/building-blocks/accordion-with-arrows
+*/
+.accordion-navigation {
+    > a:after {
+        content: "↡";
+        padding-left: 5px;
+        float: right;
+        font-size: 20px;
+    }
+
+    &.active > a:after {
+        content: "↟";
+    }
+}
+/*
+*/
+.tag {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6875rem;
+    color: #FFFFFF;
+    background-color: #88BC28;
+}
+
+.ASSTSAS {
+    color: #FFFFFF;
+    background-color: #E27A3F;
+}
+
+.Gestion {
+    color: #FFFFFF;
+    background-color: #88BC28;
+}
+
+.Conception {
+    color: #FFFFFF;
+    background-color: #E27A3F;
+}
+
+.author {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+/*
+*/
+.sticky {
+    position: relative;
+    top: 0;
+}
+/*
+*/
+.wrap {
+    height: 100vh;
+    display: flex;
+}
+
+.aside {
+    overflow-y: scroll;
+    padding: 2em;
+}
+
+.aside {
+    flex: 1;
+    background: #f7f7f7;
+}
+/*
+http://zurb.com/building-blocks/image-hover-effects
+*/
+$global-radius: 4px;
+
+.image-wrapper {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.04);
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    border-radius: $global-radius;
+}
+
+.image-overlay-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+// modifier classes
+.overlay-fade-in {
+    p {
+        letter-spacing: 0.15em;
+        color: #f4f4f4;
+        font-size: 28px;
+        opacity: 0;
+        transition: all 0.2s linear;
+    }
+
+    img {
+        transition: all 0.2s linear;
+    }
+
+    .image-overlay-content {
+        opacity: 0;
+        background-color: rgba(0,0,0, 0.4);
+        transition: all 0.4s ease-in-out;
+    }
+
+    h2 {
+        color: #f2f2f2;
+        font-size: 20px;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        background: rgba(0,0,0,0.7);
+    }
+
+    .button {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        background: #FFF;
+        color: #222;
+        text-transform: uppercase;
+        box-shadow: 0 0 1px #000;
+        position: relative;
+        border: 1px solid #999;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 0 5px #000;
+        }
+    }
+
+    &:hover img {
+        transform: scale(1.2);
+    }
+
+    &:hover .image-overlay-content {
+        opacity: 1;
+    }
+
+    &:hover h2,
+    .button,
+    p {
+        opacity: 1;
+    }
+
+    &:hover p {
+        transition-delay: 0.1s;
+    }
+
+    &:hover .button {
+        transition-delay: 0.2s;
+    }
+}
+
+.overlay-slide-in-left {
+    img {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .image-overlay-content {
+        background-image: src("https://rchampagne.ca/images/pattern.jpg");
+        background-color: rgba(0,0,0,0.3);
+        transform: translateX(-110%);
+        opacity: 1;
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 0 7px #ccc;
+    }
+
+    h2 {
+        font-size: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        color: #000;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+
+    p {
+        opacity: 0;
+        color: #333;
+        transition: all 0.2s linear;
+    }
+
+    .button {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        background: #000;
+        color: #fff;
+        text-transform: uppercase;
+        box-shadow: 0 0 1px #000;
+        position: relative;
+        border-radius: 7px;
+
+        &:hover {
+            background-color: #444;
+        }
+    }
+
+    &:hover .image-overlay-content {
+        transform: translateX(0px);
+    }
+
+    &:hover img {
+        transform: translateX(80%);
+        transition-delay: 0.1s;
+    }
+
+    &:hover p {
+        opacity: 1;
+        transition-delay: 0.4s;
+    }
+}
+
+.overlay-fade-in-new-background {
+    .button {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        background: #000;
+        color: #fff;
+        text-transform: uppercase;
+        border-radius: 5px;
+        box-shadow: 0 0 1px #000;
+        position: relative;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 0 5px #fff;
+            background-color: #222;
+        }
+    }
+
+    p {
+        font-size: 28px;
+    }
+
+    .image-overlay-content {
+        opacity: 0;
+        background-image: url("http://subtlepatterns.com/patterns/gplaypattern.png");
+        background-color: rgba(255,255,255, 0.5);
+        transition: all 0.4s ease-in-out;
+    }
+
+    h2 {
+        color: #000;
+        font-size: 20px;
+        margin-top: 30%;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+    }
+
+    p {
+        opacity: 0;
+        transition: all 0.2s linear;
+    }
+
+    img {
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:hover img {
+        filter: url( "data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+        filter: gray;
+        -webkit-filter: grayscale(100%);
+        transform: scale(1.5);
+    }
+
+    &:hover .image-overlay-content {
+        opacity: 1;
+    }
+
+    &:hover h2,
+    .button,
+    p {
+        opacity: 1;
+    }
+
+    &:hover p {
+        transition-delay: 0.1s;
+    }
+
+    &:hover .button {
+        transition-delay: 0.2s;
+    }
+}
