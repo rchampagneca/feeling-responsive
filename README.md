@@ -4,4 +4,13 @@ The **Feeling Responsive** Theme is for [Grav CMS](http://github.com/getgrav/gra
 
 ## Description
 
-This theme has been adapted from [PHLOW](www.phlow.de)'s' Jekyll theme **Feeling Responsive**
+This theme has been adapted from the Jekyll theme **Feeling responsive** designed by [PHLOW](http://www.phlow.de/).
+
+## Theme features
+
+The theme is heavily customizable featuring:
+
+* The Zurb Foundation Framework
+* Six different headers
+* Customizable navigation and footer
+* Grav blueprints for most of the theme features
